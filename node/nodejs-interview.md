@@ -63,15 +63,14 @@ var a = require('a');
 
 - Core modules
 
->
-- http: provides all the http server functionalities.
-- url: used to parse URL.
-- fs: used to interact with File System.
-- querystring: used to parse the query string of a URL.
-- child_process: creates a new child process.
-- util: a set of utilities.
-- path: used to manipulate file paths.
-- crypto: provides encryption and decryption functionalities.
+> - http: provides all the http server functionalities.
+> - url: used to parse URL.
+> - fs: used to interact with File System.
+> - querystring: used to parse the query string of a URL.
+> - child_process: creates a new child process.
+> - util: a set of utilities.
+> - path: used to manipulate file paths.
+> - crypto: provides encryption and decryption functionalities.
 
 - Custom modules
 
@@ -305,11 +304,10 @@ radio.on('close', function(station) {
 
 - `EventEmitter` methods
 
->
-- emitter.emit(name, arg1, arg2...): Synchronously calls each of the listeners registered for the event named `name`, in the order they were registered, passing the supplied arguments to each
-- emitter.on(name, fn): specify `fn` listener for a event `name`.
-- emitter.addListener(name, fn): alias for `on` method.
-- emitter.once(name, fn): only listen once.
-- emitter.listeners(name): returns an array, which contains all the listener functions of a event `name`.
-- emitter.removeListener(name, fn): removes listener `fn` for an event `name`.
-- emitter.removeAllListeners(name): removes all the listener functions for an event `name`.
+> - emitter.emit(name, arg1, arg2...): Synchronously calls each of the listeners registered for the event named `name`, in the order they were registered, passing the supplied arguments to each
+> - emitter.on(name, fn): specify `fn` listener for a event `name`.
+> - emitter.addListener(name, fn): alias for `on` method.
+> - emitter.once(name, fn): only listen once.
+> - emitter.listeners(name): returns an array, which contains all the listener functions of a event `name`.
+> - emitter.removeListener(name, fn): removes listener `fn` for an event `name`.
+> - emitter.removeAllListeners(name): removes all the listener functions for an event `name`.
