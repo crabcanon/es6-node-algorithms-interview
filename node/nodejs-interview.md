@@ -24,26 +24,23 @@ try {
 
 - Global objects
 
+> - `global`: the global env of Node, similar as `window` object in browsers, but has different behaviours. In browsers, `var x = 1` is equal to `window.x = 1`. In NodeJS modules, `var x = 1` is not a property of the global object because modules are private and other modules cannot access to this varaible.
+> - `process`: represents the current process, and is allowed to interact with developers.
+> - `console`: built-in Node module.
 >
-- `global`: the global env of Node, similar as `window` object in browsers, but has different behaviours. In browsers, `var x = 1` is equal to `window.x = 1`. In NodeJS modules, `var x = 1` is not a property of the global object because modules are private and other modules cannot access to this varaible.
-- `process`: represents the current process, and is allowed to interact with developers.
-- `console`: built-in Node module.
-
-- Global functions
-
+> - Global functions
+> 
+> - `setTimeout()`: runs callback after a specific (ms). It will return a integer which stands for the id of this new timer.
+> - `clearTimeout()`: stops a setTimeout timer.
+> - `setInterval()`: runs callback after every specific interval. It will return a integer which stands for the id  of this new timer.
+> - `clearInterval()`: stops a setInterval timer.
+> - `require()`: used for loading modules.
+> - `Buffer()`: used for manipulating binary data.
 >
-- `setTimeout()`: runs callback after a specific (ms). It will return a integer which stands for the id of this new timer.
-- `clearTimeout()`: stops a setTimeout timer.
-- `setInterval()`: runs callback after every specific interval. It will return a integer which stands for the id of this new timer.
-- `clearInterval()`: stops a setInterval timer.
-- `require()`: used for loading modules.
-- `Buffer()`: used for manipulating binary data.
-
-- Global variables
-
+> - Global variables
 >
-- `__filename`: indicates the name of current running script.
-- `__dirname`: indicates the directory of current running script.
+> - `__filename`: indicates the name of current running script.
+> - `__dirname`: indicates the directory of current running script.
 
 ### 3. Modules
 
