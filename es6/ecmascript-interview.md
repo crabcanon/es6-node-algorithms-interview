@@ -412,7 +412,7 @@ function foo() {
 
 function boo() {
   var f = function(i) {
-  	arguments[0] + i;
+    arguments[0] + i;
   }
   return f(2);
 }
