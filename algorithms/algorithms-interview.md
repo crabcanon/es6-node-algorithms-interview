@@ -200,3 +200,48 @@ function recursiveBinarySearch(arr, key, left, right) {
   }
 }
 ```
+
+### 3. Binary Search three
+
+> For each node X in the binary search tree, all the values of its children in the left partition are smaller than X's value, while all the values of its children in the right partition are larger than X's value.
+
+```javascript
+function Node(value, left, right, parent) {
+  this.value = value;
+  this.left = left;
+  this.right = right;
+  this.parent = parent;
+}
+
+//var node = new Node(value, left, right, parent);
+
+// Finds the node with minimum value in given sub-tree
+function findMin(node, current) {
+  current = current || { value: Infinity };
+
+  if (!node) {
+    return current;
+  }
+
+  if (current.value > node.value) {
+    current = node;
+  }
+
+  return findMin(node.left, current);
+}
+
+// Finds the node with maximum value in given sub-tree
+function findMax(node, current) {
+  current = current || { value: -Infinity };
+
+  if (!node) {
+    return current;
+  }
+
+  if (current.value < node.value) {
+    current = node;
+  }
+
+  return findMax(node.right, current);
+}
+```
