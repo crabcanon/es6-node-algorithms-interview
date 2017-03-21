@@ -201,7 +201,7 @@ function recursiveBinarySearch(arr, key, left, right) {
 }
 ```
 
-### 3. Binary Search three
+### 3. Binary Search Tree
 
 > For each node X in the binary search tree, all the values of its children in the left partition are smaller than X's value, while all the values of its children in the right partition are larger than X's value.
 
