@@ -28,8 +28,9 @@ try {
 > - `process`: represents the current process, and is allowed to interact with developers.
 > - `console`: built-in Node module.
 >
-> - Global functions
-> 
+
+- Global functions
+
 > - `setTimeout()`: runs callback after a specific (ms). It will return a integer which stands for the id of this new timer.
 > - `clearTimeout()`: stops a setTimeout timer.
 > - `setInterval()`: runs callback after every specific interval. It will return a integer which stands for the id  of this new timer.
@@ -37,8 +38,9 @@ try {
 > - `require()`: used for loading modules.
 > - `Buffer()`: used for manipulating binary data.
 >
-> - Global variables
->
+
+- Global variables
+
 > - `__filename`: indicates the name of current running script.
 > - `__dirname`: indicates the directory of current running script.
 
