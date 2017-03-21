@@ -174,3 +174,27 @@ function quickSort(arr, left, right) {
   return arr;
 }
 ```
+
+### 2. Search algorithms
+
+- Recursive Binary Search - O(logN)
+
+> Search started from the middle element of an array. If the middle element is the traget, return. Otherwise, if your target is larger than the middle element, restart the search process from the middle element of right(or left) partition, and repeat this process till the target is found(recursive).
+
+```javascript
+function recursiveBinarySearch(arr, key, left, right) {
+  if (left > right) {
+    return -1;
+  }
+
+  var middle = Math.floor((right + left) / 2);
+
+  if (arr[middle] === key) {
+    return middle;
+  } else if (arr[middle] > key) {
+    return recursiveBinarySearch(arr, key, left, middle - 1);
+  } else {
+    return recursiveBinarySearch(arr, key, middle + 1, right);
+  }
+}
+```
