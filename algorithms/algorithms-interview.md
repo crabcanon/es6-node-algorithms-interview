@@ -1,6 +1,8 @@
 ### 1. Sort algorithms
 
-- Bubble Sort
+> [Array Sorting Algorithms Complexities](http://bigocheatsheet.com/)
+
+- Bubble Sort - [Best: Ω(n) | Worst: O(n^2)]
 
 > Compare the two adjacent numbers in order. If not meet the rules, swap their positions. This will make sure the max(or min) number is in the end position of the sequence. Repeat this process(expect for the last number of the sequence).
 
@@ -27,7 +29,7 @@ function bubbleSort(arr) {
 }
 ```
 
-- Selection sort
+- Selection Sort - [Best: Ω(n^2) | Worst: Ω(n^2)]
 
 > Similar as bubble sort, but the difference is that it will not swap the positions after each comparation. Instead, it will find the max(or min) number after one round comparation and put it to the correct position and no change for other positions.
 
@@ -60,7 +62,7 @@ function selectionSort(arr) {
 }
 ```
 
-- Insertion sort
+- Insertion Sort - [Best: Ω(n) | Worst: O(n^2)]
 
 > It divides the array into two parts: sorted and unsorted. In the beginning, the sorted part only contains one element, and we need to insert the next element from unsorted part to sorted part(compare these two elements and adjust their positions). Therefore, one element will be added to sorted part and removed from unsorted part each time.
 
@@ -82,7 +84,7 @@ function insertionSort(arr) {
 }
 ```
 
-- Merge sort
+- Mergesort - [Best: Ω(n log(n)) | Worst: O(n log(n))]
 
 > The basic idea is to combine two sorted arrays. Therefore, the original array could be divided into n arrays and each of them only contains one element, then merge each two of them till the end.
 
@@ -120,7 +122,7 @@ function mergeSort(arr) {
 }
 ```
 
-- Quick sort
+- Quicksort - [Best: Ω(n log(n)) | Worst: O(n^2)]
 
 > Define a pivot, and put all the smaller elements on the left side while all the larger elements on the right of this pivot. Repeat this process for both sides till finish.
 
