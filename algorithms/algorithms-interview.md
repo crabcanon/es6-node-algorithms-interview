@@ -124,7 +124,7 @@ function mergeSort(arr) {
 
 - Quicksort - [Best: Ω(n log(n)) | Worst: O(n^2)]
 
-> Define a pivot, and put all the smaller elements on the left side while all the larger elements on the right of this pivot. Repeat this process for both sides till finish.
+> Define a pivot and the original array will be divided into two partitions based on this pivot. Then define two pointers, one points to first element of the left partition while the other one points to last element of the right partition. Compare left pointer's value with pivot's value, if smaller, move the left pointer to the next position, otherwise, stay still. Compare right pointer's value with pivot's value, if larger, move the right pointer to the previous position, otherwise, stay still. Compare positions of left and right pointers. If left pointer's position is larger than right pointer's position, this round sort stops, otherwise, swap their values. Repeat this process for left and right partitions till the end. Finally, all the smaller elements will be put on the left partition, while all the larger elements will be put on the right partition.
 
 ```javascript
 function swap(arr, i1, i2) {
