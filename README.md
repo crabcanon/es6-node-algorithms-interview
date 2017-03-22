@@ -2,9 +2,9 @@
 A list of questions related to ES6/ES7, NodeJS and Algorithms.
 
 ## Contents
-1. [ES6/ES7](es6/ecmascript-interview.md)
+1. [ES6 / ES7](es6/ecmascript-interview.md)
 2. [NodeJS](node/nodejs-interview.md)
-3. [Algorithms/Data structure](algorithms/algorithms-interview.md)
+3. [Algorithms / Data structure](algorithms/algorithms-interview.md)
 
 ## References
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
