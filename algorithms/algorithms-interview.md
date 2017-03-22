@@ -182,10 +182,13 @@ function quickSort(arr, left, right) {
 > Create an array of initially empty "buckets"(a new two-dimensional array). Go over the original array and put each item in its bucket, which means push item to the second-level array(bucket) whose key in the first-level array is same as that item's Math.floor(value). Sort each non-empty bucket if not sure all the items are integers by using other sorting algorithms or by recursively applying the bucket sort. Finally, flatten this two-dimensional array(remove empty buckets at the same time).
 
 ```javascript
-// Input: [5.6, 5.2, 5.1, 1, 3, 2, 6, 8, 4, 3, 2]
-// Output: [undefined, [1], [2, 2], [3, 3], [4], [5.6, 5.2, 5.1], [6], undefined, [8]]
-// This function is very useful if all the items are integers in an array
-// Example: https://www.codewars.com/kata/reviews/5834316306f227a6ac00009b/groups/58d240d9fcafd414f2001b59
+/**
+ * Input: [5.6, 5.2, 5.1, 1, 3, 2, 6, 8, 4, 3, 2]
+ * Output: [undefined, [1], [2, 2], [3, 3], [4], [5.6, 5.2, 5.1], [6], undefined, [8]]
+ *
+ * This function is very useful if all the items are integers in an array. Example:
+ * https://www.codewars.com/kata/reviews/5834316306f227a6ac00009b/groups/58d240d9fcafd414f2001b59
+ */
 function createBuckets(arr) {
   let buckets = [];
   let current;
