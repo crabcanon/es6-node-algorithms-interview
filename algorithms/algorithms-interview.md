@@ -84,7 +84,7 @@ function insertionSort(arr) {
 }
 ```
 
-- Mergesort - [Best: Ω(n log(n)) | Worst: O(n log(n))]
+- Merge Sort - [Best: Ω(n log(n)) | Worst: O(n log(n))]
 
 > The basic idea is to combine two sorted arrays. Therefore, the original array could be divided into n arrays and each of them only contains one element, then merge each two of them till the end.
 
@@ -122,7 +122,7 @@ function mergeSort(arr) {
 }
 ```
 
-- Quicksort - [Best: Ω(n log(n)) | Worst: O(n^2)]
+- Quick Sort - [Best: Ω(n log(n)) | Worst: O(n^2)]
 
 > Define a pivot and the original array will be divided into two partitions based on this pivot. Then define two pointers, one points to first element of the left partition while the other one points to last element of the right partition. Compare left pointer's value with pivot's value, if smaller, move the left pointer to the next position, otherwise, stay still. Compare right pointer's value with pivot's value, if larger, move the right pointer to the previous position, otherwise, stay still. Compare positions of left and right pointers. If left pointer's position is larger than right pointer's position, this round sort stops, otherwise, swap their values. Repeat this process for left and right partitions till the end. Finally, all the smaller elements will be put on the left partition, while all the larger elements will be put on the right partition.
 
@@ -174,6 +174,47 @@ function quickSort(arr, left, right) {
   }
 
   return arr;
+}
+```
+
+- Bucket Sort
+
+> Create an array of initially empty "buckets"(a new two-dimensional array). Go over the original array and put each item in its bucket, which means push item to the second-level array(bucket) whose key in the first-level array is same as that item's Math.floor(value). Sort each non-empty bucket if not sure all the items are integers by using other sorting algorithms or by recursively applying the bucket sort. Finally, flatten this two-dimensional array(remove empty buckets at the same time).
+
+```javascript
+// Input: [5.6, 5.2, 5.1, 1, 3, 2, 6, 8, 4, 3, 2]
+// Output: [undefined, [1], [2, 2], [3, 3], [4], [5.6, 5.2, 5.1], [6], undefined, [8]]
+// This function is very useful if all the items are integers in an array
+// Example: https://www.codewars.com/kata/reviews/5834316306f227a6ac00009b/groups/58d240d9fcafd414f2001b59
+function createBuckets(arr) {
+  let buckets = [];
+  let current;
+
+  for (let i = 0; i < arr.length; i++) {
+    current = Math.floor(arr[i]);
+    buckets[current] = buckets[current] || [];
+    buckets[current].push(current);
+  }
+
+  return buckets;
+}
+
+function bucketSort(arr) {
+  let result = [];
+  let buckets = createBuckets(arr);
+
+  for (let i = 0; i < buckets.length; i++) {
+    if (buckets[i] !== undefined && buckets[i].length > 1) {
+      // MergeSort, QuickSort...
+      quickSort(buckets[i]);
+    }
+  }
+
+  for (let j of buckets) {
+    if (j !== undefined) result = result.concat(j);
+  }
+
+  return result;
 }
 ```
 
