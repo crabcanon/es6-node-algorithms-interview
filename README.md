@@ -16,6 +16,7 @@ A list of questions related to ES6/ES7, NodeJS and Algorithms.
 - [JavaScript Standards Reference Guide](http://javascript.ruanyifeng.com/)
 - [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
 - [interviews](https://github.com/kdn251/interviews)
+- [awesome-interview-questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
 
 ## License
 
