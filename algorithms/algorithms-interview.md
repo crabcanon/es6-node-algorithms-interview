@@ -124,7 +124,7 @@ function mergeSort(arr) {
 
 - Quick Sort - [Best: Ω(n log(n)) | Worst: O(n^2)]
 
-> Define a pivot and the original array will be divided into two partitions based on this pivot. Then define two pointers, one points to first element of the left partition while the other one points to last element of the right partition. Compare left pointer's value with pivot's value, if smaller, move the left pointer to the next position, otherwise, stay still. Compare right pointer's value with pivot's value, if larger, move the right pointer to the previous position, otherwise, stay still. Compare positions of left and right pointers. If left pointer's position is larger than right pointer's position, this round sort stops, otherwise, swap their values. Repeat this process for left and right partitions till the end. Finally, all the smaller elements will be put on the left partition, while all the larger elements will be put on the right partition.
+> Define a pivot and the original array will be divided into two partitions based on this pivot. Then define two pointers, one points to first element of the left partition while the other one points to last element of the right partition. Compare left pointer's value with pivot's value, if smaller, move the left pointer to the next position, otherwise, stay still. Compare right pointer's value with pivot's value, if greater, move the right pointer to the previous position, otherwise, stay still. Compare positions of left and right pointers. If left pointer's position is greater than right pointer's position, this round sort stops, otherwise, swap their values. Repeat this process for left and right partitions till the end. Finally, all the smaller elements will be put on the left partition, while all the greater elements will be put on the right partition.
 
 ```javascript
 function swap(arr, i1, i2) {
@@ -177,7 +177,7 @@ function quickSort(arr, left, right) {
 }
 ```
 
-- Bucket Sort
+- Bucket Sort - [Best: Ω(n+k) | Worst: O(n^2)]
 
 > Create an array of initially empty "buckets"(a new two-dimensional array). Go over the original array and put each item in its bucket, which means push item to the second-level array(bucket) whose key in the first-level array is same as that item's Math.floor(value). Sort each non-empty bucket if not sure all the items are integers by using other sorting algorithms or by recursively applying the bucket sort. Finally, flatten this two-dimensional array(remove empty buckets at the same time).
 
@@ -223,9 +223,103 @@ function bucketSort(arr) {
 
 ### 2. Search algorithms
 
-- Recursive Binary Search - O(logN)
+- QuickSelect - [Best: O(n) | Worst: O(n^2)]
 
-> Search started from the middle element of an array. If the middle element is the traget, return. Otherwise, if your target is larger than the middle element, restart the search process from the middle element of right(or left) partition, and repeat this process till the target is found(recursive).
+> Select a random element from the list(pivot), and place every element that is smaller to the left half of the array, and every element that is equal or greater to the right half of the array. As we know the location of pivot, we could easily address whether our target is on the left or right side of the array and then only recurses into one side. This actually reduces the average complexity from O(nlogN) to O(N).
+
+```javascript
+
+/**
+ * Source: https://github.com/mourner/quickselect/blob/master/index.js
+ *
+ * @param {Array} arr: the array to partially sort (in place).
+ * @param {Number} k: middle index for partial sorting (as defined above).
+ * @param {Number} left: left index of the range to sort (0 by default).
+ * @param {Number} right: right index (last index of the array by default).
+ * @param {Func} compare: compare function.
+ * @return Returns n-th smallest element.
+ *
+ * Example:
+ * var arr = [65, 28, 59, 33, 21, 56, 22, 95, 50, 12, 90, 53, 28, 77, 39];
+ * quickselect(arr, 8);
+ * arr is [39, 28, 28, 33, 21, 12, 22, 50, 53, 56, 59, 65, 90, 77, 95]
+ *                                         ^^ middle index
+ *
+ * Arr = [5 1 4 3 2]
+ * Pivot = [4]
+ *
+ * Steps:
+ * swap [5] and [2] as 5>=4 and 2<
+ * [2 1 4 3 5]
+ *
+ * swap [4] and [3] as 4>=4 and 3<4
+ * [2 1 3 4 5]
+ *
+ * When we finish with the first iteration, we know the followings:
+ * All elements <4 are on the left of 4
+ * All elements >=4 are on the right of 4 (including the 4 itself)
+ *
+ * So, if we are looking for the first 3 elements, we can stop, we found them.
+ * If we are looking for the 3rd element, we need more iteration
+ * but we know we must look for it in the first half of the array hence we can ignore the rest.
+ */
+module.exports = function (arr, k, left, right, compare) {
+  quickselect(arr, k, left || 0, right || (arr.length - 1), compare || defaultCompare);
+};
+
+function quickselect(arr, k, left, right, compare) {
+  while (right > left) {
+    if (right - left > 600) {
+      var n = right - left + 1;
+      var m = k - left + 1;
+      var z = Math.log(n);
+      var s = 0.5 * Math.exp(2 * z / 3);
+      var sd = 0.5 * Math.sqrt(z * s * (n - s) / n) * (m - n / 2 < 0 ? -1 : 1);
+      var newLeft = Math.max(left, Math.floor(k - m * s / n + sd));
+      var newRight = Math.min(right, Math.floor(k + (n - m) * s / n + sd));
+      quickselect(arr, k, newLeft, newRight, compare);
+    }
+
+    var t = arr[k];
+    var i = left;
+    var j = right;
+
+    swap(arr, left, k);
+    if (compare(arr[right], t) > 0) swap(arr, left, right);
+
+    while (i < j) {
+      swap(arr, i, j);
+      i++;
+      j--;
+      while (compare(arr[i], t) < 0) i++;
+      while (compare(arr[j], t) > 0) j--;
+    }
+
+    if (compare(arr[left], t) === 0) swap(arr, left, j);
+    else {
+      j++;
+      swap(arr, j, right);
+    }
+
+    if (j <= k) left = j + 1;
+    if (k <= j) right = j - 1;
+  }
+}
+
+function swap(arr, i, j) {
+  var tmp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = tmp;
+}
+
+function defaultCompare(a, b) {
+  return a < b ? -1 : a > b ? 1 : 0;
+}
+```
+
+- Recursive Binary Search - [Best: O(1) | Worst: O(logN)]
+
+> Search started from the middle element of an array. If the middle element is the target, return. Otherwise, if your target is greater than the middle element, restart the search process from the middle element of right(or left) partition, and repeat this process till the target is found(recursive).
 
 ```javascript
 function recursiveBinarySearch(arr, key, left, right) {
@@ -247,7 +341,7 @@ function recursiveBinarySearch(arr, key, left, right) {
 
 ### 3. Binary Search Tree
 
-> For each node X in the binary search tree, all the values of its children in the left partition are smaller than X's value, while all the values of its children in the right partition are larger than X's value.
+> For each node X in the binary search tree, all the values of its children in the left partition are smaller than X's value, while all the values of its children in the right partition are greater than X's value.
 
 ```javascript
 function Node(value, left, right, parent) {
