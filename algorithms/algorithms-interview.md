@@ -383,3 +383,7 @@ function findMax(node, current) {
   return findMax(node.right, current);
 }
 ```
+
+### 4. Heap
+
+> A binary heap is a complete binary tree which satisfies the heap property: if A is a parent node of B, the key(the value) of node A is ordered with respect to the key of node B with the same ordering applying across the heap. A heap can be classified as either a "max heap"(the keys of parent nodes are greater than or equal to those of the children and the highest key is in the root node) or a "min heap"(the keys of parent nodes are less than or equal to those of the children and the lowest key is in the root node). A heap is always a complete binary tree, which means each level of the tree, except possibly the last, is completely filled, and all nodes in the last level are filled from the left side.  
