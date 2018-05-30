@@ -3,8 +3,9 @@ A list of questions related to ES6/ES7, NodeJS and Algorithms.
 
 ## Contents
 1. [ES6 / ES7](es6/ecmascript-interview.md)
-2. [NodeJS](node/nodejs-interview.md)
+2. [Node](node/nodejs-interview.md)
 3. [Algorithms / Data structure](algorithms/algorithms-interview.md)
+4. [Frameworks](frameworks/react-angular-interview.md)
 
 ## References
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
@@ -17,6 +18,10 @@ A list of questions related to ES6/ES7, NodeJS and Algorithms.
 - [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
 - [interviews](https://github.com/kdn251/interviews)
 - [awesome-interview-questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
+- [Redux](https://cn.redux.js.org/)
+- [You might not need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
+- [React的Diff算法和生命周期](http://www.infoq.com/cn/articles/react-dom-diff)
+- [React vs Angular](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
 
 ## License
 
