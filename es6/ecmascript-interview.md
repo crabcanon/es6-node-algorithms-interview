@@ -313,6 +313,8 @@ Promise.race(promises2).then((data) => {
 
 - Generators
 
+> 利用了协程机制，调用Generator函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象。必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。换言之，Generator 函数是分段执行的，yield表达式是暂停执行的标记，而next方法可以恢复执行。
+
 ```javascript
 // fibonacci-generator
 // https://gist.github.com/jfairbank/8d36e4bde9c16dc0bac7
@@ -493,3 +495,13 @@ console.log(Foo.prototype); // undefined
 - Use of the `yield` keyword
 
 >The yield keyword may not be used in an arrow function's body (except when permitted within functions further nested within it). As a consequence, arrow functions cannot be used as generators.
+
+### 6. 一些被问过的问题
+
+- Map / WeakMap / Set / WeakSet 的区别和用途。
+- Javascript垃圾回收机制？
+- Generator的原理，什么是协程？协程和进程有什么区别？
+- Promise / Generator / Async 用法和区别。有什么API？
+- 如何定义变量？
+- 闭包是什么？实际项目中如何用闭包？
+- Computed Property Names有什么作用和好处？
